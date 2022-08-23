@@ -150,13 +150,13 @@ def write_title():
     :return: None
     """
 
-    trackline = "track type=wiggle_0 name=\"GC percentage\" description=\"{}\"\n".format(record.description)
+    #trackline = "track type=wiggle_0 name=\"GC percentage\" description=\"{}\"\n".format(record.description)
     variablestep = "variableStep chrom={} span={}\n".format(record.id, str(window_size))
     if output_format == "wiggle":
-        result.write(trackline)
+        #result.write(trackline)
         result.write(variablestep)
     elif output_format == "gzip":
-        result.write(bytes(trackline, "utf-8"))
+        #result.write(bytes(trackline, "utf-8"))
         result.write(bytes(variablestep, "utf-8"))
     elif output_format == "bigwig":
         result.addHeader([(record.id, len(record))])

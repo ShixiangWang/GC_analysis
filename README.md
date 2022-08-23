@@ -3,7 +3,18 @@
 # GC-analysis
 A command-line utility for calculating GC percentages of genome sequences
 
-> This is a fork version for outputing only the positions have GC counts instead of all positions (in which positions with GC=0 kept, for large windows like 50, these regions are Ns).
+> **NOTE:** This is a fork version with some modifications to serve as an alternative to `sequenza-utils gc_wiggle`.
+
+What's modified:
+
+- Outputing only the positions have GC counts instead of all positions (in which positions with GC=0 kept, for large windows like 50, these regions are Ns).
+- Remove track line from result wiggle files. (sequenza does not work with the track line)
+
+Install this specific version, you have to run:
+
+```
+pip3 install git+https://github.com/ShixiangWang/GC_analysis
+```
 
 # Quick starter
 Calculate the GC content of chromosome 17 of the human reference genome with window size (or span) = 5 and shift (or step) = 5. Input fasta file is `GRCh38-Chrom17.fasta` and output wiggle file is `GRCh38-Chrom17.wig`. Note that the output file's extension is added by the program.
