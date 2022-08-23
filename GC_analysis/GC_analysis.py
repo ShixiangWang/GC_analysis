@@ -187,12 +187,14 @@ def generate_result():
         frag = record.seq[i * shift: i * shift + window_size]  # Extract the string for counting
         # Count number of C and G and convert to percentage
         percent = int(round((frag.count("C") + frag.count("G")) / float(window_size) * 100))
-        write_content(i * shift, percent)
+        if percent > 0:
+            write_content(i * shift, percent)
     if (i + 1) * shift < seq_len and not omit_tail:
         # if trailing sequence exits and omit_tail is False
         frag = record.seq[(i + 1) * shift:]
         percent = int(round((frag.count("C") + frag.count("G")) / float(len(frag)) * 100))
-        write_content((i + 1) * shift, percent)
+        if percent > 0:
+            write_content((i + 1) * shift, percent)
 
 
 if __name__ == "__main__":
